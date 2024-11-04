@@ -8,10 +8,13 @@ import {
   Pressable,
 } from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import {NavigationProp, useNavigation} from '@react-navigation/native';
 import {globalColors} from '../../theme/theme';
+import {RootStackParams} from '../../navigation/stack/StackNavigator';
 
 export const SignInScreen = () => {
   const {top} = useSafeAreaInsets();
+  const navigation = useNavigation<NavigationProp<RootStackParams>>();
 
   return (
     <ScrollView
@@ -80,6 +83,7 @@ export const SignInScreen = () => {
           </View>
           <View style={styles.contentLoginButtonAndDescriptionNewAccount}>
             <Pressable
+              onPress={() => navigation.navigate('LogIn')}
               style={{
                 backgroundColor: '#06A0B5',
                 borderRadius: 50,
